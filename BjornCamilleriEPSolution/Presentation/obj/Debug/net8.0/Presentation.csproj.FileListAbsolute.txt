@@ -144,3 +144,15 @@ C:\Users\bjorn\Documents\EPHomeAssignment2025\BjornCamilleriEPSolution\Presentat
 C:\Users\bjorn\Documents\EPHomeAssignment2025\BjornCamilleriEPSolution\Presentation\obj\Debug\net8.0\Presentation.pdb
 C:\Users\bjorn\Documents\EPHomeAssignment2025\BjornCamilleriEPSolution\Presentation\obj\Debug\net8.0\Presentation.genruntimeconfig.cache
 C:\Users\bjorn\Documents\EPHomeAssignment2025\BjornCamilleriEPSolution\Presentation\obj\Debug\net8.0\ref\Presentation.dll
+C:\Users\bjorn\Documents\EPHomeAssignment2025\BjornCamilleriEPSolution\Presentation\obj\Debug\net8.0\Presentation.sourcelink.json
+C:\Users\bjorn\Documents\EPHomeAssignment2025\BjornCamilleriEPSolution\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\bjorn\Documents\EPHomeAssignment2025\BjornCamilleriEPSolution\Presentation\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\bjorn\Documents\EPHomeAssignment2025\BjornCamilleriEPSolution\Presentation\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\bjorn\Documents\EPHomeAssignment2025\BjornCamilleriEPSolution\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\bjorn\Documents\EPHomeAssignment2025\BjornCamilleriEPSolution\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\bjorn\Documents\EPHomeAssignment2025\BjornCamilleriEPSolution\Presentation\bin\Debug\net8.0\System.ClientModel.dll
+C:\Users\bjorn\Documents\EPHomeAssignment2025\BjornCamilleriEPSolution\Presentation\bin\Debug\net8.0\System.Formats.Asn1.dll
+C:\Users\bjorn\Documents\EPHomeAssignment2025\BjornCamilleriEPSolution\Presentation\bin\Debug\net8.0\DataAccess.dll
+C:\Users\bjorn\Documents\EPHomeAssignment2025\BjornCamilleriEPSolution\Presentation\bin\Debug\net8.0\Domain.dll
+C:\Users\bjorn\Documents\EPHomeAssignment2025\BjornCamilleriEPSolution\Presentation\bin\Debug\net8.0\DataAccess.pdb
+C:\Users\bjorn\Documents\EPHomeAssignment2025\BjornCamilleriEPSolution\Presentation\bin\Debug\net8.0\Domain.pdb
