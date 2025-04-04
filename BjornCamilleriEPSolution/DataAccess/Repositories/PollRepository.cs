@@ -1,26 +1,24 @@
 ﻿using DataAccess.DataContext;
 using Domain.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-    internal class PollRepository
+    public class PollRepository
     {
-        private readonly PollDbContext _context;
+        private readonly PollDbContext context;
 
-        public PollRepository(PollDbContext context)
+        //Constructor Injection
+        public PollRepository(PollDbContext _context)
         {
-            _context = context;
+            context = _context;
         }
 
         public void CreatePoll(Poll poll)
         {
-            _context.Polls.Add(poll);
-            _context.SaveChanges();
+            context.Polls.Add(poll);
+            context.SaveChanges();
         }
 
     }
