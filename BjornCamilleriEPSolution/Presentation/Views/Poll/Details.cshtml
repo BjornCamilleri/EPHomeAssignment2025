@@ -60,6 +60,24 @@
         </dd>
     </dl>
 </div>
+<!-- Voting Form -->
+<h4>Vote for an Option</h4>
+<form asp-action="Vote" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="option" value="1" id="option1" required>
+        <label class="form-check-label" for="option1">@Model.Option1Text</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="option" value="2" id="option2">
+        <label class="form-check-label" for="option2">@Model.Option2Text</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="option" value="3" id="option3">
+        <label class="form-check-label" for="option3">@Model.Option3Text</label>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Submit Vote</button>
+</form>
 <div>
     <a asp-action="Index">Back to List</a>
 </div>

@@ -31,7 +31,31 @@ namespace DataAccess.Repositories
             return context.Polls.FirstOrDefault(p => p.Id == id);
         }
 
-        
+        public void Vote(int pollId, int option)
+        {
+            var poll = GetPollById(pollId);
+
+            if (poll == null)
+                return;
+
+            switch (option)
+            {
+                case 1:
+                    poll.Option1VotesCount++;
+                    break;
+                case 2:
+                    poll.Option2VotesCount++;
+                    break;
+                case 3:
+                    poll.Option3VotesCount++;
+                    break;
+            }
+
+            context.SaveChanges();
+        }
+
+
+
 
 
     }
