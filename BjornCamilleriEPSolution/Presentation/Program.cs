@@ -16,6 +16,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<PollDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<PollRepository>();
+builder.Services.AddScoped<PollFileRepository>();
 
 var app = builder.Build();
 
