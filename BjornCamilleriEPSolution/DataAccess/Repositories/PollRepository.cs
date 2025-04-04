@@ -1,6 +1,7 @@
 ﻿using DataAccess.DataContext;
 using Domain.Interfaces;
 using Domain.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Linq;
@@ -33,11 +34,14 @@ namespace DataAccess.Repositories
             return context.Polls.FirstOrDefault(p => p.Id == id);
         }
 
-        public void Vote(int pollId, int option)
+        public void Vote(int pollId, int option, string userId)
         {
             var poll = GetPollById(pollId);
 
             if (poll == null)
+                return;
+
+            if (poll.UserIds.Contains(userId))
                 return;
 
             switch (option)
@@ -53,7 +57,17 @@ namespace DataAccess.Repositories
                     break;
             }
 
+            poll.UserIds.Add(userId);
             context.SaveChanges();
+        }
+
+
+        public bool CheckUserVote(int pollId, string userId)
+        {
+
+            var poll = context.Polls.FirstOrDefault(p => p.Id == pollId);
+            return poll != null && poll.UserIds.Contains(userId);
+
         }
 
 

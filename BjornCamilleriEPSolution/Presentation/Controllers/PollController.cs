@@ -1,7 +1,10 @@
 ﻿using DataAccess.Repositories;
 using Domain.Interfaces;
 using Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Presentation.Filters;
+using System.Security.Claims;
 
 namespace Presentation.Controllers
 {
@@ -47,10 +50,14 @@ namespace Presentation.Controllers
         }
 
         [HttpPost]
+        [Authorize]
+        [ServiceFilter(typeof(VotingFilter))]
         public IActionResult Vote(int id, int option, [FromServices] IPollRepository pollRepository)
         {
-            pollRepository.Vote(id, option);
-            return RedirectToAction("Details", new { id });
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            pollRepository.Vote(id, option, userId);
+            return RedirectToAction("Details", new { id = id });
         }
 
 

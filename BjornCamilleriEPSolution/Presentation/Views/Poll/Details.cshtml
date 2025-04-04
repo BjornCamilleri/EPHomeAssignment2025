@@ -6,6 +6,17 @@
 
 <h1>Details</h1>
 
+@if (TempData["AlreadyVoted"] != null)
+
+{
+    <div class="alert alert-danger" role="alert">
+
+        @TempData["AlreadyVoted"]
+    </div>
+
+}
+
+
 <div>
     <h4>Poll</h4>
     <hr />

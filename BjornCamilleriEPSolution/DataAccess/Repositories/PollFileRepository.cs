@@ -33,25 +33,32 @@ namespace DataAccess.Repositories
             return GetPolls().FirstOrDefault(p => p.Id == id);
         }
 
-        public void Vote(int pollId, int option)
+        public void Vote(int pollId, int option, string userId)
         {
             var polls = GetPolls().ToList();
             var poll = polls.FirstOrDefault(p => p.Id == pollId);
 
             if (poll == null) return;
 
+            if (poll.UserIds.Contains(userId))
+            {
+                return;
+            }
+
             switch (option)
             {
-                case 1: 
+                case 1:
                     poll.Option1VotesCount++;
                     break;
-                case 2: 
-                    poll.Option2VotesCount++; 
+                case 2:
+                    poll.Option2VotesCount++;
                     break;
-                case 3: 
-                    poll.Option3VotesCount++; 
+                case 3:
+                    poll.Option3VotesCount++;
                     break;
             }
+
+            poll.UserIds.Add(userId);
 
             SavePollsToFile(polls);
         }
@@ -61,5 +68,31 @@ namespace DataAccess.Repositories
             var json = JsonSerializer.Serialize(polls, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(filePath, json);
         }
+
+        public bool CheckUserVote(int pollId, string userId)
+        {
+            var poll = GetPollById(pollId);
+            return poll != null && poll.UserIds.Contains(userId);
+
+        }
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
