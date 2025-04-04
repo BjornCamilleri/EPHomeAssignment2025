@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.SqlServer.Server;
 using DataAccess.DataContext;
 using DataAccess.Repositories;
+using Domain.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,8 +16,10 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<PollDbContext>();
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<PollRepository>();
-builder.Services.AddScoped<PollFileRepository>();
+
+//builder.Services.AddScoped<IPollRepository, PollRepository>(); //Database
+builder.Services.AddScoped<IPollRepository, PollFileRepository>();  //JSON File
+
 
 var app = builder.Build();
 

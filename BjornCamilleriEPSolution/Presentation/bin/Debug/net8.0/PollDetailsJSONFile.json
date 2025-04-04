@@ -1,0 +1,35 @@
+[
+  {
+    "Id": 1,
+    "Title": "ads",
+    "Option1Text": "asd",
+    "Option2Text": "asd",
+    "Option3Text": "sd",
+    "Option1VotesCount": 0,
+    "Option2VotesCount": 0,
+    "Option3VotesCount": 0,
+    "DateCreated": "2025-04-04T19:59:33.4531155+02:00"
+  },
+  {
+    "Id": 2,
+    "Title": "faf",
+    "Option1Text": "fas",
+    "Option2Text": "fa",
+    "Option3Text": "fd",
+    "Option1VotesCount": 0,
+    "Option2VotesCount": 0,
+    "Option3VotesCount": 0,
+    "DateCreated": "2025-04-04T19:59:59.6197564+02:00"
+  },
+  {
+    "Id": 3,
+    "Title": "dsad",
+    "Option1Text": "sad",
+    "Option2Text": "dsd",
+    "Option3Text": "sd",
+    "Option1VotesCount": 0,
+    "Option2VotesCount": 0,
+    "Option3VotesCount": 0,
+    "DateCreated": "2025-04-04T20:01:25.6880386+02:00"
+  }
+]

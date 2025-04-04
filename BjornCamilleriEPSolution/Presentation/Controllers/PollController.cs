@@ -1,4 +1,5 @@
 ﻿using DataAccess.Repositories;
+using Domain.Interfaces;
 using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,9 +7,8 @@ namespace Presentation.Controllers
 {
     public class PollController : Controller
     {
-
         [HttpGet]
-        public IActionResult Index([FromServices] PollRepository pollRepository)
+        public IActionResult Index([FromServices] IPollRepository pollRepository)
         {
             var polls = pollRepository.GetPolls().OrderByDescending(p => p.DateCreated);
             return View(polls);
@@ -20,9 +20,8 @@ namespace Presentation.Controllers
             return View();
         }
 
-        //Method Injection
         [HttpPost]
-        public IActionResult CreatePoll(Poll poll, [FromServices] PollRepository pollRepository)
+        public IActionResult CreatePoll(Poll poll, [FromServices] IPollRepository pollRepository)
         {
             if (ModelState.IsValid)
             {
@@ -35,12 +34,11 @@ namespace Presentation.Controllers
                 pollRepository.CreatePoll(poll);
                 return RedirectToAction("Index");
             }
-
             return View(poll);
         }
 
         [HttpGet]
-        public IActionResult Details(int id, [FromServices] PollRepository pollRepository)
+        public IActionResult Details(int id, [FromServices] IPollRepository pollRepository)
         {
             var poll = pollRepository.GetPollById(id);
             if (poll == null)
@@ -49,7 +47,7 @@ namespace Presentation.Controllers
         }
 
         [HttpPost]
-        public IActionResult Vote(int id, int option, [FromServices] PollRepository pollRepository)
+        public IActionResult Vote(int id, int option, [FromServices] IPollRepository pollRepository)
         {
             pollRepository.Vote(id, option);
             return RedirectToAction("Details", new { id });
