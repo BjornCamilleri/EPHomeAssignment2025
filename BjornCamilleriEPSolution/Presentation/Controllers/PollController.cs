@@ -27,7 +27,7 @@ namespace Presentation.Controllers
                 poll.Option2VotesCount = 0;
                 poll.Option3VotesCount = 0;
 
-                poll.DateCreated = DateTime.UtcNow;
+                poll.DateCreated = DateTime.Now;
 
                 pollRepository.CreatePoll(poll);
                 return View();
