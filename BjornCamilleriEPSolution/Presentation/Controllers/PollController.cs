@@ -39,6 +39,17 @@ namespace Presentation.Controllers
             return View(poll);
         }
 
+        [HttpGet]
+        public IActionResult Details(int id, [FromServices] PollRepository pollRepository)
+        {
+            var poll = pollRepository.GetPollById(id);
+            if (poll == null)
+                return NotFound();
+            return View(poll);
+        }
+
+
+
 
 
     }

@@ -26,6 +26,13 @@ namespace DataAccess.Repositories
             return context.Polls;
         }
 
+        public Poll GetPollById(int id)
+        {
+            return context.Polls.FirstOrDefault(p => p.Id == id);
+        }
+
+        
+
 
     }
 }
