@@ -7,11 +7,14 @@ namespace Presentation.Controllers
     public class PollController : Controller
     {
 
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Index([FromServices] PollRepository pollRepository)
         {
-            return View();
+            var polls = pollRepository.GetPolls().OrderByDescending(p => p.DateCreated);
+            return View(polls);
         }
 
+        [HttpGet]
         public IActionResult CreatePoll()
         {
             return View();
@@ -30,7 +33,7 @@ namespace Presentation.Controllers
                 poll.DateCreated = DateTime.Now;
 
                 pollRepository.CreatePoll(poll);
-                return View();
+                return RedirectToAction("Index");
             }
 
             return View(poll);
